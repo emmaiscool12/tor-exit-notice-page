@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tor Exit Router</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="container">
+      <!-- Header -->
+      <header class="header">
+        <div class="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shield-icon">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10" />
+          </svg>
+        </div>
+        <h1>This is a Tor Exit Router</h1>
+        <p class="subtitle">A secure gateway in the Tor Anonymity Network</p>
+        <p class="metrics-link">
+          <a href="https://metrics.torproject.org/rs.html#details/C51A0EB65D00A4B75D2B6A08DEA146CC7DC56658" target="_blank" rel="noopener noreferrer">
+            View Router Metrics
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </a>
+        </p>
+      </header>
+
+      <main>
+        <!-- Introduction -->
+        <section class="card">
+          <p>
+            You are most likely accessing this website because you've had some issue with traffic coming from this IP.
+            This router is part of the <a href="https://www.torproject.org/">Tor Anonymity Network</a>,
+            which is dedicated to providing privacy to people who need it most: average computer users.
+          </p>
+          <p>
+            This router IP should be generating no other traffic, unless it has been compromised.
+          </p>
+        </section>
+
+        <!-- How Tor Works -->
+        <section class="card">
+          <h2>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            </svg>
+            How Tor Works
+          </h2>
+          <div class="features">
+            <div class="feature">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+              <h3>Encrypted Routing</h3>
+              <p>Traffic is encrypted and routed through multiple servers</p>
+            </div>
+            <div class="feature">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                <line x1="6" y1="18" x2="6.01" y2="18"></line>
+              </svg>
+              <h3>Exit Nodes</h3>
+              <p>Final relay point before reaching destination</p>
+            </div>
+            <div class="feature">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+              <h3>Anonymity</h3>
+              <p>Protects user privacy and prevents tracking</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Important Notice -->
+        <section class="notice">
+          <div class="notice-content">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+              <line x1="12" y1="9" x2="12" y2="13"></line>
+              <line x1="12" y1="17" x2="12.01" y2="17"></line>
+            </svg>
+            <div>
+              <h3>Important Notice</h3>
+              <p>
+                This router maintains no logs of any Tor traffic. Attempts to seize this router will accomplish nothing.
+                We operate under strict privacy policies and legal protections.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Links -->
+        <section class="card">
+          <h2>Additional Resources</h2>
+          <div class="resources">
+            <a href="https://2019.www.torproject.org/about/overview" class="resource" target="_blank" rel="noopener noreferrer">
+              <div>
+                <div class="resource-title">
+                  Tor Overview
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>
+                </div>
+                <p>Learn more about how Tor works</p>
+              </div>
+            </a>
+            <a href="https://support.torproject.org/abuse/" class="resource" target="_blank" rel="noopener noreferrer">
+              <div>
+                <div class="resource-title">
+                  Tor Abuse FAQ
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>
+                </div>
+                <p>Common questions about Tor abuse</p>
+              </div>
+            </a>
+            <a href="https://community.torproject.org/relay/community-resources/eff-tor-legal-faq/" class="resource" target="_blank" rel="noopener noreferrer">
+              <div>
+                <div class="resource-title">
+                  Tor Legal FAQ
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>
+                </div>
+                <p>Legal information about Tor</p>
+              </div>
+            </a>
+            <a href="https://check.torproject.org/torbulkexitlist" class="resource" target="_blank" rel="noopener noreferrer">
+              <div>
+                <div class="resource-title">
+                  Exit Node List
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>
+                </div>
+                <p>List of Tor exit nodes</p>
+              </div>
+            </a>
+          </div>
+        </section>
+      </main>
+
+      <!-- Footer -->
+      <footer>
+        <p>Contact the maintainer at: <a href="mailto:emmaiscool@tutamail.com">emmaiscool@tutamail.com</a></p>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

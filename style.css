@@ -1,0 +1,253 @@
+:root {
+  --primary: #9333ea;
+  --primary-light: #a855f7;
+  --text: #1f2937;
+  --text-light: #4b5563;
+  --background: #f9fafb;
+  --card-background: #ffffff;
+  --warning-background: #fefce8;
+  --warning-border: #facc15;
+  --warning-text: #854d0e;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary: #a855f7;
+    --primary-light: #c084fc;
+    --text: #f9fafb;
+    --text-light: #d1d5db;
+    --background: #111827;
+    --card-background: #1f2937;
+    --warning-background: rgba(234, 179, 8, 0.2);
+    --warning-border: #eab308;
+    --warning-text: #fef08a;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--background);
+}
+
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.shield-icon {
+  color: var(--primary);
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 3rem;
+  }
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: var(--text-light);
+  margin-bottom: 1rem;
+}
+
+.metrics-link {
+  margin-top: 1rem;
+}
+
+.metrics-link a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: var(--card-background);
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.metrics-link a:hover {
+  background: var(--primary);
+  color: white;
+  text-decoration: none;
+}
+
+.metrics-link a:hover svg {
+  color: white;
+}
+
+/* Cards */
+.card {
+  background: var(--card-background);
+  border-radius: 0.5rem;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text);
+}
+
+.card h2 svg {
+  color: var(--primary);
+}
+
+.card p {
+  color: var(--text-light);
+  margin-bottom: 1rem;
+}
+
+.card p:last-child {
+  margin-bottom: 0;
+}
+
+/* Features */
+.features {
+  display: grid;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+@media (min-width: 768px) {
+  .features {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.feature {
+  text-align: center;
+}
+
+.feature svg {
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.feature h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+}
+
+.feature p {
+  color: var(--text-light);
+  font-size: 0.875rem;
+}
+
+/* Notice */
+.notice {
+  background: var(--warning-background);
+  border-left: 4px solid var(--warning-border);
+  border-radius: 0.5rem;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.notice-content {
+  display: flex;
+  gap: 1rem;
+}
+
+.notice-content svg {
+  flex-shrink: 0;
+  color: var(--warning-border);
+  margin-top: 0.25rem;
+}
+
+.notice h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: var(--warning-text);
+}
+
+.notice p {
+  color: var(--warning-text);
+}
+
+/* Resources */
+.resources {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .resources {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.resource {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.resource:hover {
+  background-color: rgba(147, 51, 234, 0.1);
+}
+
+.resource-title {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: var(--primary);
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.resource p {
+  font-size: 0.875rem;
+  color: var(--text-light);
+}
+
+/* Links */
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--primary-light);
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  margin-top: 4rem;
+  color: var(--text-light);
+}
