@@ -3,24 +3,278 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tor Exit Router</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Tor Exit Relay - New York City</title>
+    <style>
+      :root {
+        --primary: #9333ea;
+        --primary-light: #a855f7;
+        --text: #1f2937;
+        --text-light: #4b5563;
+        --background: #f9fafb;
+        --card-background: #ffffff;
+        --warning-background: #fefce8;
+        --warning-border: #facc15;
+        --warning-text: #854d0e;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --primary: #a855f7;
+          --primary-light: #c084fc;
+          --text: #f9fafb;
+          --text-light: #d1d5db;
+          --background: #111827;
+          --card-background: #1f2937;
+          --warning-background: rgba(234, 179, 8, 0.2);
+          --warning-border: #eab308;
+          --warning-text: #fef08a;
+        }
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+          Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+        line-height: 1.6;
+        color: var(--text);
+        background: var(--background);
+      }
+
+      .container {
+        max-width: 1024px;
+        margin: 0 auto;
+        padding: 3rem 1rem;
+      }
+
+      /* Header */
+      .header {
+        text-align: center;
+        margin-bottom: 4rem;
+      }
+
+      .logo {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+      }
+
+      .shield-icon {
+        color: var(--primary);
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+
+      @media (min-width: 768px) {
+        h1 {
+          font-size: 3rem;
+        }
+      }
+
+      .subtitle {
+        font-size: 1.25rem;
+        color: var(--text-light);
+        margin-bottom: 1rem;
+      }
+
+      .metrics-link {
+        margin-top: 1rem;
+      }
+
+      .metrics-link a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        background: var(--card-background);
+        border-radius: 0.5rem;
+        font-weight: 500;
+        transition: all 0.2s;
+      }
+
+      .metrics-link a:hover {
+        background: var(--primary);
+        color: white;
+        text-decoration: none;
+      }
+
+      .metrics-link a:hover svg {
+        color: white;
+      }
+
+      /* Cards */
+      .card {
+        background: var(--card-background);
+        border-radius: 0.5rem;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      }
+
+      .card h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--text);
+      }
+
+      .card h2 svg {
+        color: var(--primary);
+      }
+
+      .card p {
+        color: var(--text-light);
+        margin-bottom: 1rem;
+      }
+
+      .card p:last-child {
+        margin-bottom: 0;
+      }
+
+      /* Features */
+      .features {
+        display: grid;
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      @media (min-width: 768px) {
+        .features {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      .feature {
+        text-align: center;
+      }
+
+      .feature svg {
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+
+      .feature h3 {
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+        color: var(--text);
+      }
+
+      .feature p {
+        color: var(--text-light);
+        font-size: 0.875rem;
+      }
+
+      /* Notice */
+      .notice {
+        background: var(--warning-background);
+        border-left: 4px solid var(--warning-border);
+        border-radius: 0.5rem;
+        padding: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .notice-content {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .notice-content svg {
+        flex-shrink: 0;
+        color: var(--warning-border);
+        margin-top: 0.25rem;
+      }
+
+      .notice h3 {
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+        color: var(--warning-text);
+      }
+
+      .notice p {
+        color: var(--warning-text);
+      }
+
+      /* Resources */
+      .resources {
+        display: grid;
+        gap: 1rem;
+      }
+
+      @media (min-width: 768px) {
+        .resources {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      .resource {
+        padding: 1rem;
+        border-radius: 0.5rem;
+        text-decoration: none;
+        transition: background-color 0.2s;
+      }
+
+      .resource:hover {
+        background-color: rgba(147, 51, 234, 0.1);
+      }
+
+      .resource-title {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        color: var(--primary);
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+      }
+
+      .resource p {
+        font-size: 0.875rem;
+        color: var(--text-light);
+      }
+
+      /* Links */
+      a {
+        color: var(--primary);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+
+      a:hover {
+        color: var(--primary-light);
+        text-decoration: underline;
+      }
+
+      /* Footer */
+      footer {
+        text-align: center;
+        margin-top: 4rem;
+        color: var(--text-light);
+      }
+    </style>
   </head>
   <body>
     <div class="container">
       <!-- Header -->
       <header class="header">
         <div class="logo">
-          <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shield-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shield-icon" aria-label="Shield icon">
             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10" />
           </svg>
         </div>
-        <h1>This is a Tor Exit Router</h1>
+        <h1>This is a Tor Exit Relay</h1>
         <p class="subtitle">A secure gateway in the Tor Anonymity Network</p>
         <p class="metrics-link">
           <a href="https://metrics.torproject.org/rs.html#details/C51A0EB65D00A4B75D2B6A08DEA146CC7DC56658" target="_blank" rel="noopener noreferrer">
-            View Router Metrics
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            View Relay Metrics
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="External link icon">
               <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
               <polyline points="15 3 21 3 21 9"></polyline>
               <line x1="10" y1="14" x2="21" y2="3"></line>
@@ -33,19 +287,17 @@
         <!-- Introduction -->
         <section class="card">
           <p>
-            You are most likely accessing this website because you've had some issue with traffic coming from this IP.
-            This router is part of the <a href="https://www.torproject.org/">Tor Anonymity Network</a>,
-            which is dedicated to providing privacy to people who need it most: average computer users.
+            You are likely accessing this website because you’ve noticed traffic from this IP address. This server is a Tor exit relay, part of the <a href="https://www.torproject.org/">Tor Anonymity Network</a>, which helps protect user privacy by anonymizing internet traffic.
           </p>
           <p>
-            This router IP should be generating no other traffic, unless it has been compromised.
+            This relay does not originate traffic unless it has been compromised. If you suspect abuse, please consult the <a href="https://support.torproject.org/abuse/">Tor Abuse FAQ</a>. Due to our no-logs policy, we cannot assist with inquiries about specific user traffic.
           </p>
         </section>
 
         <!-- How Tor Works -->
         <section class="card">
           <h2>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="Globe icon">
               <circle cx="12" cy="12" r="10"></circle>
               <line x1="2" y1="12" x2="22" y2="12"></line>
               <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
@@ -54,7 +306,7 @@
           </h2>
           <div class="features">
             <div class="feature">
-              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="Lock icon">
                 <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
                 <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
               </svg>
@@ -62,17 +314,17 @@
               <p>Traffic is encrypted and routed through multiple servers</p>
             </div>
             <div class="feature">
-              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="Server icon">
                 <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
                 <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
                 <line x1="6" y1="6" x2="6.01" y2="6"></line>
                 <line x1="6" y1="18" x2="6.01" y2="18"></line>
               </svg>
-              <h3>Exit Nodes</h3>
+              <h3>Exit Relays</h3>
               <p>Final relay point before reaching destination</p>
             </div>
             <div class="feature">
-              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="Users icon">
                 <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
                 <circle cx="9" cy="7" r="4"></circle>
                 <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
@@ -87,7 +339,7 @@
         <!-- Important Notice -->
         <section class="notice">
           <div class="notice-content">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="Warning icon">
               <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
               <line x1="12" y1="9" x2="12" y2="13"></line>
               <line x1="12" y1="17" x2="12.01" y2="17"></line>
@@ -95,8 +347,7 @@
             <div>
               <h3>Important Notice</h3>
               <p>
-                This router maintains no logs of any Tor traffic. Attempts to seize this router will accomplish nothing.
-                We operate under strict privacy policies and legal protections.
+                This relay maintains no logs of Tor traffic, in accordance with Tor’s privacy principles. For legal information, including US-specific guidance, see the <a href="https://community.torproject.org/relay/community-resources/eff-tor-legal-faq/">EFF Tor Legal FAQ</a>. Contact the operator for general inquiries only.
               </p>
             </div>
           </div>
@@ -106,11 +357,11 @@
         <section class="card">
           <h2>Additional Resources</h2>
           <div class="resources">
-            <a href="https://2019.www.torproject.org/about/overview" class="resource" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.torproject.org/about/history/" class="resource" target="_blank" rel="noopener noreferrer">
               <div>
                 <div class="resource-title">
                   Tor Overview
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="External link icon">
                     <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                     <polyline points="15 3 21 3 21 9"></polyline>
                     <line x1="10" y1="14" x2="21" y2="3"></line>
@@ -123,7 +374,7 @@
               <div>
                 <div class="resource-title">
                   Tor Abuse FAQ
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="External link icon">
                     <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                     <polyline points="15 3 21 3 21 9"></polyline>
                     <line x1="10" y1="14" x2="21" y2="3"></line>
@@ -136,7 +387,7 @@
               <div>
                 <div class="resource-title">
                   Tor Legal FAQ
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="External link icon">
                     <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                     <polyline points="15 3 21 3 21 9"></polyline>
                     <line x1="10" y1="14" x2="21" y2="3"></line>
@@ -148,14 +399,14 @@
             <a href="https://check.torproject.org/torbulkexitlist" class="resource" target="_blank" rel="noopener noreferrer">
               <div>
                 <div class="resource-title">
-                  Exit Node List
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  Exit Relay List
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="External link icon">
                     <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                     <polyline points="15 3 21 3 21 9"></polyline>
                     <line x1="10" y1="14" x2="21" y2="3"></line>
                   </svg>
                 </div>
-                <p>List of Tor exit nodes</p>
+                <p>List of Tor exit relays</p>
               </div>
             </a>
           </div>
@@ -165,6 +416,7 @@
       <!-- Footer -->
       <footer>
         <p>Contact the maintainer at: <a href="mailto:emmaiscool@tutamail.com">emmaiscool@tutamail.com</a></p>
+        <p>This relay is hosted in New York City, USA. This notice is provided by the relay operator and is not officially endorsed by the Tor Project.</p>
       </footer>
     </div>
 
